@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="container">
+      <Controls/>
+      <Courses/>
+      <Balance/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Controls from './components/Controls.vue';
+import Courses from './components/Courses.vue';
+import Balance from './components/Balance.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    HelloWorld
+    Controls,
+    Courses,
+    Balance
+  },
+
+  mounted() {
+    this.$store.dispatch('getCoursesData');
   }
 };
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
